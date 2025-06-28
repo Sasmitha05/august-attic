@@ -1,0 +1,100 @@
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  font-family: 'Folklore', sans-serif;
+  background-color: #A9B388;
+  overflow-y: auto; /* Allows scrolling when items overflow */
+  min-height: 500px; /* Minimum height to keep footer at the bottom */
+}
+
+.cart-container h1{
+  text-align: center;
+  font-size: 2rem;
+  color: #5F6F52; /* Muted green for title */
+  margin-bottom: 20px;
+  font-family: 'Folklore', sans-serif; 
+}
+
+.cart-items {
+  flex-grow: 1; /* Ensures that the item list takes up available space */
+  overflow-y: auto; /* Makes the items section scrollable if it overflows */
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #A9B388; /* Light background for each item */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover; /* Ensure image scales nicely */
+  margin-right: 15px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.cart-item-details p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #424242; /* Charcoal for text color */
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-item-actions button {
+  background-color: #B99470;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.cart-item button{
+  background-color: #B99470;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.cart-item-actions button:hover {
+  background-color: #B99470;
+}
+
+.cart-total {
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: right;
+}
+
+.cart-total button {
+  background-color: #B99470;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cart-total button:hover {
+  background-color: #A9B388;
+}

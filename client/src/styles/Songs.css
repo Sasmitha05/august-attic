@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'Breathing';
+  src: url('../assets/Breathing.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.songs-page {
+  padding: 40px 20px;
+  font-family: 'Breathing', sans-serif;
+  background-color: #FEFAE0;
+  color: #5F6F52;
+  min-height: 100vh;
+  background-image: url('../assets/bgsignup.jpg'); /* reuse your background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.songs-page h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(185, 148, 112, 0.3);
+}
+
+.songs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.song-item {
+  background-color: rgba(250, 249, 246, 0.95);
+  border: 1px solid #B99470;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(95, 111, 82, 0.15);
+}
+
+.song-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #5F6F52;
+  text-align: center;
+}
+
+.song-item iframe {
+  border-radius: 12px;
+}
+
+/* Toggle Button */
+.toggle-era-button {
+  display: block;
+  margin: 0 auto 30px auto;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-family: 'Breathing', sans-serif;
+  background-color: #A9B388;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-era-button:hover {
+  background-color: #8B6B4F;
+}

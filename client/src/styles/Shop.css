@@ -1,0 +1,79 @@
+.shop {
+    text-align: center;
+    font-family: 'Folklore', sans-serif;
+    background-color: #A9B388;
+    padding: 20px; /* Add some padding around the content */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    color: #5F6F52;
+}
+
+.merch-list {
+    display: flex; /* Use Flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+    justify-content: center; /* Center-align items */
+    gap: 20px; /* Add space between items */
+    margin-top: 20px; /* Space between heading and items */
+}
+
+.merch-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 250px;
+    height: 380px;
+    background-color: #A9B388;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.merch-item img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.merch-item p {
+    color: #424242;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 5px; /* Reduce the gap between text and price */
+    max-width: 250px; /* Limit text width to the same size as the image */
+}
+
+/* Price styling */
+.merch-item p:last-child {
+    font-weight: bold;
+    color: #B99470; /* Color to make the price stand out */
+}
+
+/* Buttons container */
+.merch-item .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    width: 200px;
+}
+
+/* Button styling */
+.merch-item button {
+    padding: 8px 15px;
+    font-size: 12px;
+    background-color: #B99470;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    flex-grow: 1;
+}
+
+.merch-item button:hover {
+    background-color: #A9B388;
+}

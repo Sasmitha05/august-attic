@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'Breathing';
+  src: url('../assets/Breathing.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #A9B388; /* Background color */
+  color: #5F6F52; /* Text color */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 70px; /* Adjust the size as needed */
+  height: auto;
+  margin-right: 10px; /* Space between the logo and the title */
+}
+
+.navbar h1 {
+  font-family: 'Breathing', sans-serif; /* Apply the custom font */
+  font-size: 1rem;  /* Adjust the size as needed */
+  color: #5F6F52;  /* Major color for title text */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #5F6F52; /* Text color for links */
+}
+
+.navbar ul li a:hover {
+  color: #B99470; /* Hover color for links */
+}
+
+/* Profile Dropdown Menu Styling */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile span {
+  color: #5F6F52;
+  font-size: 14px;
+}
+
+.logout-button {
+  background-color: #B99470;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #8B6B4F;
+}
+
+.profile-dropdown {
+  background-color: #fefae0;
+  border: 1px solid #b99470;
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 40px; /* Adjust the position relative to the Profile button */
+  right: 0;  /* Align it to the right of the button */
+  min-width: 150px; /* Ensure a decent width for the dropdown */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Close Button Styling */
+.profile-dropdown .close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #5F6F52; /* Match color with other buttons */
+  align-self: flex-end;
+}
+
+.profile-dropdown .close-btn:hover {
+  color: #B99470; /* Hover color to match the links */
+}
+
+.profile-dropdown p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.profile-dropdown button {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.profile-dropdown button:hover {
+  background-color: #c62828;
+}

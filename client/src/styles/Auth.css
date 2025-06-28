@@ -1,0 +1,170 @@
+@font-face {
+  font-family: 'Breathing';
+  src: url('../assets/Breathing.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #A9B388; /* Background color */
+  color: #5F6F52; /* Text color */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 70px; /* Adjust the size as needed */
+  height: auto;
+  margin-right: 10px; /* Space between the logo and the title */
+}
+
+.navbar h1 {
+  font-family: 'Breathing', sans-serif; /* Apply the custom font */
+  font-size: 1rem;  /* Adjust the size as needed */
+  color: #5F6F52;  /* Major color for title text */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #5F6F52; /* Text color for links */
+}
+
+.navbar ul li a:hover {
+  color: #B99470; /* Hover color for links */
+}
+
+/* Profile Button Styling */
+.navbar .profile button {
+  background: none; /* No background */
+  color: #5F6F52; /* Text color to match the links */
+  border: none; /* Remove border */
+  font-size: 1rem; /* Adjust size to match other links */
+  cursor: pointer;
+  font-weight: normal; /* Remove bold font weight */
+  transition: color 0.3s ease; /* Add smooth color transition on hover */
+}
+
+.navbar .profile button:hover {
+  color: #B99470; /* Hover color to match other links */
+}
+
+
+/* Profile Dropdown Menu Styling */
+.profile-dropdown {
+  background-color: #fefae0;
+  border: 1px solid #b99470;
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 40px; /* Adjust the position relative to the Profile button */
+  right: 0;  /* Align it to the right of the button */
+  min-width: 150px; /* Ensure a decent width for the dropdown */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-dropdown p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Auth Container Styling */
+.auth-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgba(250, 249, 246, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.auth-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/bgsignup.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: -1;
+}
+
+.auth-container h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+  font-family: 'Breathing', sans-serif;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-container input {
+  padding: 10px;
+  border: 1px solid #B99470;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.auth-container input:focus {
+  outline: none;
+  border-color: #5F6F52;
+}
+
+.auth-container button {
+  background-color: #B99470;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-container button:hover {
+  background-color: #8B6B4F;
+}
+
+.auth-container p {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.auth-container a {
+  color: #B99470;
+  text-decoration: none;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: #d32f2f;
+  text-align: center;
+  margin-bottom: 15px;
+}
+

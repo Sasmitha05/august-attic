@@ -1,0 +1,40 @@
+/* General layout settings */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full height of the viewport */
+    margin: 0; /* Remove default body margin */
+  }
+  
+  .app {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  main {
+    flex-grow: 1; /* Pushes footer down */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Footer stays at the bottom */
+  .footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #A9B388; /* Light cream background */
+    color: #5F6F52;
+    position: relative;
+  }
+  
+  /* Cart-specific adjustments */
+  .cart-container {
+    flex-grow: 1; /* Allow cart content to grow with the page */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: 'Folklore', sans-serif;
+    background-color: #A9B388;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+  

@@ -1,0 +1,29 @@
+/* General layout settings */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure the body takes the full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content wrapper for the main content */
+main {
+  flex: 1; /* Allow main content to grow and push the footer down */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer always sticks to the bottom */
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #A9B388; /* Footer background color */
+  color: #5F6F52; /* Footer text color */
+}

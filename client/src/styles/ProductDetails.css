@@ -1,0 +1,106 @@
+/* ProductDetails.css */
+
+/* Importing Folklore font */
+@font-face {
+  font-family: 'Folklore';
+  src: url('../assets/folklore.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.product-details-container {
+  background-color: #A9B388; /* Matches Home background */
+  padding: 20px;
+  font-family: 'Folklore', sans-serif; /* Same font as Home */
+  text-align: center;
+  min-height: 100vh; /* Ensure the container takes up at least the full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures footer is pushed to the bottom */
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.product-details-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #5F6F52; /* Muted green for title */
+  margin-bottom: 20px;
+  font-family: 'Folklore', sans-serif; /* Apply the custom font to the product name */
+}
+
+
+.product-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-grow: 1; /* Allows product details section to take up remaining space */
+}
+
+.product-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for polished look */
+}
+
+.product-info {
+  flex: 1;
+  text-align: left;
+  color: #5F6F52; /* Charcoal color for text */
+}
+
+.product-info p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.product-info strong {
+  color: #5F6F52; /* Muted green for labels */
+}
+
+/* Add to Cart Button */
+.add-to-cart-button {
+  background-color: #B99470; /* Warm brown button */
+  color: white;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #A9B388; /* Muted green hover effect */
+}
+
+/* Error and Loading States */
+.error, .loading {
+  text-align: center;
+  color: #B99470; /* Matching error color */
+  font-size: 1.2rem;
+  margin-top: 30px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .product-details {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-image {
+    width: 80%; /* Scale image on smaller screens */
+    height: auto;
+  }
+
+  .product-info {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
