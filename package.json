@@ -2,7 +2,7 @@
   "name": "august-attic",
   "version": "1.0.0",
   "description": "MERN stack e-commerce application with Spotify integration",
-  "main": "server/index.js",
+  "main": "server/server.js",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd server && npm run dev",
@@ -15,10 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/august-attic.git"
+    "url": "https://github.com/Sasmitha05/august-attic"
   },
   "author": "Your Name",
   "license": "MIT",
+  "homepage": ".", 
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
   "devDependencies": {
     "concurrently": "^7.6.0"
   }
