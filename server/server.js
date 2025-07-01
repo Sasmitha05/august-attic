@@ -72,7 +72,7 @@ app.get('/api/test', (req, res) => {
 });
 
 app.use('/api/merch', merchRoutes);
-app.use('/api/user', userRoutes); // Add this line
+app.use('/api/users', userRoutes); // Add this line
 
 // Global error handler
 app.use((err, req, res, next) => {
