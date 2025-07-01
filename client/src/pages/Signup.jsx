@@ -9,6 +9,11 @@ const Signup = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  // Use the same API_BASE_URL pattern as your other API files
+  const API_BASE_URL = process.env.NODE_ENV === 'production' 
+    ? 'https://august-attic.onrender.com'
+    : process.env.REACT_APP_API_URL || 'http://localhost:5001';
+
   // Function to validate email format
   const validateEmail = (email) => {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
@@ -30,7 +35,8 @@ const Signup = () => {
     const user = { email, name, password };
 
     try {
-      const response = await fetch('http://localhost:5001/api/user/signup', {
+      console.log('Signing up at:', `${API_BASE_URL}/api/user/signup`); // Debug log
+      const response = await fetch(`${API_BASE_URL}/api/user/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,7 +54,7 @@ const Signup = () => {
       localStorage.setItem('user', JSON.stringify(data));
       navigate('/'); // Redirect to Home
     } catch (error) {
-      console.error(error.message);
+      console.error('Signup error:', error.message);
       setError(error.message); // Set error in state to show in the container
     }
   };

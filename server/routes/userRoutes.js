@@ -1,10 +1,11 @@
-const express = require('express');
-const User = require('../models/User');
+import express from 'express';
+import User from '../models/User.js';
+
 const router = express.Router();
 
 // Helper function to validate email format
 const validateEmail = (email) => {
-  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-2.-]+\.[a-zA-Z]{2,6}$/;
   return regex.test(email);
 };
 
@@ -34,16 +35,19 @@ router.post('/signup', async (req, res) => {
 
     const newUser = new User({ email, name, password });
     await newUser.save();
-    res.status(201).json(newUser);
+    
+    // Don't send password back to client
+    const { password: _, ...userResponse } = newUser.toObject();
+    res.status(201).json(userResponse);
   } catch (error) {
-    console.error(error);
+    console.error('Signup error:', error);
     res.status(500).json({ error: 'Failed to create user' });
   }
 });
 
 // Login route to authenticate user
 router.post('/login', async (req, res) => {
-  console.log('Request body:', req.body); // Debugging
+  console.log('Login attempt for:', req.body.email); // Debugging
   const { email, password } = req.body;
 
   try {
@@ -52,6 +56,7 @@ router.post('/login', async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
 
+    // Note: In production, you should hash passwords and compare hashes
     if (user.password !== password) {
       return res.status(400).json({ error: 'Incorrect password' });
     }
@@ -61,10 +66,9 @@ router.post('/login', async (req, res) => {
       user: { name: user.name, email: user.email },
     });
   } catch (error) {
-    console.error(error);
+    console.error('Login error:', error);
     res.status(500).json({ error: 'Failed to login' });
   }
 });
 
-
-module.exports = router;
+export default router;

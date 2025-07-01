@@ -8,12 +8,18 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  // Use the same API_BASE_URL pattern as your other API files
+  const API_BASE_URL = process.env.NODE_ENV === 'production' 
+    ? 'https://august-attic.onrender.com'
+    : process.env.REACT_APP_API_URL || 'http://localhost:5001';
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError(''); // Clear previous errors
 
     try {
-      const response = await fetch('http://localhost:5001/api/user/login', {
+      console.log('Logging in at:', `${API_BASE_URL}/api/user/login`); // Debug log
+      const response = await fetch(`${API_BASE_URL}/api/user/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +40,7 @@ const Login = () => {
         throw new Error('Unexpected server response');
       }
     } catch (err) {
-      console.error(err.message);
+      console.error('Login error:', err.message);
       setError(err.message); // Display error in the container
     }
   };
@@ -42,7 +48,7 @@ const Login = () => {
   return (
     <div className="auth-container">
       <h2>Login</h2>
-      {error && <p className="error-message">{error}</p>} {/* Updated here */}
+      {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleLogin}>
         <input
           type="email"

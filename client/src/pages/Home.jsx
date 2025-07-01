@@ -35,9 +35,12 @@ const Home = () => {
   useEffect(() => {
     const getMerch = async () => {
       try {
+        console.log('Fetching merch...');
         const merchData = await fetchMerch();
+        console.log('Merch data received:', merchData);
         setMerch(merchData);
       } catch (err) {
+        console.error('Error fetching merch:', err);
         setError(err);
       } finally {
         setLoading(false);
@@ -50,6 +53,10 @@ const Home = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
+  // Add debug logging to see what's in the merch array
+  console.log('Current merch state:', merch);
+  console.log('Merch length:', merch.length);
+
   const addToCart = (product) => {
     const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
     const updatedCart = [...existingCart, product];
@@ -58,12 +65,33 @@ const Home = () => {
   };
 
   const handleAddToCart = (item) => {
-    addToCart(item); // Add item to cart when clicked
+    addToCart(item);
   };
 
   const handleShopNow = (itemId) => {
-    // Navigate to the product detail page
     navigate(`/product/${itemId}`);
+  };
+
+  // Handle image errors with fallback
+  const handleImageError = (e, itemName) => {
+    console.log(`Image failed to load for ${itemName}, using fallback`);
+    // Try different fallback services in order
+    const fallbackImages = [
+      `https://picsum.photos/240/200?random=${Math.floor(Math.random() * 1000)}`,
+      `https://dummyimage.com/240x200/cccccc/000000&text=${encodeURIComponent(itemName)}`,
+      `https://via.placeholder.com/240x200/cccccc/000000?text=${encodeURIComponent(itemName)}`,
+      'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjY2NjY2NjIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIiBmaWxsPSIjMDAwMDAwIj5JbWFnZSBOb3QgRm91bmQ8L3RleHQ+PC9zdmc+'
+    ];
+    
+    const currentSrc = e.target.src;
+    const currentIndex = fallbackImages.indexOf(currentSrc);
+    
+    if (currentIndex < fallbackImages.length - 1) {
+      e.target.src = fallbackImages[currentIndex + 1];
+    } else {
+      // Last fallback - inline SVG
+      e.target.src = fallbackImages[fallbackImages.length - 1];
+    }
   };
 
   return (
@@ -97,21 +125,29 @@ const Home = () => {
       {/* Merch Section */}
       <div className="merch-carousel">
         <h2>Merch</h2>
-        <Slider {...sliderSettings}>
-          {merch.map((item) => (
-            <div key={item._id} className="merch-item">
-              <img src={item.image} alt={item.name} />
-              <p>{item.name}</p>
-              <p>{item.price ? `$${item.price}` : ''}</p>
+        {merch.length === 0 ? (
+          <p>No merchandise available at the moment.</p>
+        ) : (
+          <Slider {...sliderSettings}>
+            {merch.map((item) => (
+              <div key={item._id} className="merch-item">
+                <img 
+                  src={item.image} 
+                  alt={item.name}
+                  onError={(e) => handleImageError(e, item.name)}
+                />
+                <h3>{item.name}</h3>
+                <p className="price">{item.price ? `$${item.price}` : 'Price not available'}</p>
 
-              {/* Add to Cart and Shop Now Buttons */}
-              <div className="buttons">
-                <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
-                <button onClick={() => handleShopNow(item._id)}>Shop Now</button>
+                {/* Add to Cart and Shop Now Buttons */}
+                <div className="buttons">
+                  <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
+                  <button onClick={() => handleShopNow(item._id)}>Shop Now</button>
+                </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        )}
       </div>
     </div>
   );
