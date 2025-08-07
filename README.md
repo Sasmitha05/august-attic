@@ -1,7 +1,6 @@
 # august-attic
 
-🎧 August Attic
-August Attic is a full-stack web application that blends merchandise shopping with live Spotify music streaming. It offers users an immersive experience where they can browse exclusive merch, preview music, and manage a shopping cart, all in one sleek platform.
+🎧 August Attic is a full-stack web application that blends merchandise shopping with live Spotify music streaming. It offers users an immersive experience where they can browse exclusive merch, preview music, and manage a shopping cart, all in one sleek platform.
 
 🌟 Features
 🔐 Authentication
